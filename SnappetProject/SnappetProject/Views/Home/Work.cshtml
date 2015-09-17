@@ -1,0 +1,156 @@
+﻿@model IEnumerable<SnappetProject.Models.Subject>
+
+@{
+    ViewBag.Title = "Snappet";
+}
+
+<div id="chartContainer1" style="height: 300px; width: 100%;"></div>
+<div id="chartContainer2" style="height: 300px; width: 100%;"></div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        
+
+        //$("#GenerateReport").val("abc");
+         
+        var chart1 = new CanvasJS.Chart("chartContainer1", {
+            theme: "theme2",//theme1
+            title: {
+                text: "Progress per subject"
+            },
+            animationEnabled: true,
+            data: [
+            {
+                // Change type to "bar", "splineArea", "area", "spline", "pie","column"etc.
+                type: "pie",
+                dataPoints: @Html.Raw(ViewBag.DataPoints1)
+                }
+            ]
+        });
+        chart1.render();
+        var chart2 = new CanvasJS.Chart("chartContainer2", {
+            theme: "theme2",//theme1
+            title: {
+                text: "Subject wise user's progress"
+            },
+            animationEnabled: true,
+            data: [
+            {
+                // Change type to "bar", "splineArea", "area", "spline", "pie","column"etc.
+                type: "splineArea",
+                dataPoints: @Html.Raw(ViewBag.DataPoints2)
+                }
+            ]
+                });
+        chart2.render();
+    });
+</script>
+
+<h2>Work - Report</h2>
+@if (ViewBag.ErrorMessageForNoRecord!=null)
+{
+    <h4>@ViewBag.ErrorMessageForNoRecord</h4>
+}
+@*<form action="">
+<div>
+    <label for="SubmitDateTime">Submit Date</label>
+         <div>
+            <input class="text-box single-line" data-val="true" data-val-date="The field Submit Date must be a date." data-val-required="The Submit Date field is required." id="SubmitDateTime" name="SubmitDateTime" type="date" value="24/3/2015" />
+            <span class="field-validation-valid help-inline" data-valmsg-for="SubmitDateTime" data-valmsg-replace="true"></span>
+         </div>
+</div>
+</form>*@
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+    <fieldset>
+        <legend>Please enter the required Information to view the Work Report.</legend>
+        <ol>
+            <li>
+                @Html.LabelFor(model => model.ElementAt(0).SubmitDate)
+                @Html.EditorFor(model => model.ElementAt(0).SubmitDate)
+            </li>
+        </ol>
+        <input type="submit" name="GenerateReport" id="GenerateReport" value="Generate Report" />
+    </fieldset>
+}
+
+@*<table>
+    <tr>
+        <th>
+            Date
+        </th>
+        <th>
+            Student
+        </th>
+        <th>
+            Subject
+        </th>
+        <th>
+            Progress
+        </th>
+    </tr>
+
+@foreach (var item in @ViewBag.Users as IEnumerable<SnappetProject.Models.User>)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => @item.SubmitDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => @item.UserId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => @item.Subject)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => @item.Progress)
+        </td>
+    </tr>
+}
+
+</table>*@
+
+<table>
+    <tr>
+        <th>
+            Date
+        </th>
+        <th>
+            Student
+        </th>
+        <th>
+            Subject
+        </th>
+        <th>
+            Progress
+        </th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => @item.SubmitDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => @item.SubjectName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => @item.Progress)
+        </td>
+    </tr>
+}
+
+</table>
+
+@*<div style="padding:10px; border:1px solid black">
+    <div><a href="@Url.Action("Report", new {id="PDF"})">Get Report PDF</a></div>
+    <div><a href="@Url.Action("Report", new {id="Excel"})">Get Report Excel</a></div>
+    <div><a href="@Url.Action("Report", new {id="Word"})">Get Report Word</a></div>
+    <div><a href="@Url.Action("Report", new {id="Image"})">Get Report Image</a></div>
+
+</div>*@

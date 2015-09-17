@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WorkModel.Store" Alias="Self" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="WorkModelStoreContainer">
+    <EntitySet Name="work" EntityType="WorkModel.Store.work" store:Type="Tables" />
+  </EntityContainer>
+  <EntityType Name="work">
+    <Key>
+      <PropertyRef Name="Date" />
+    </Key>
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Student" Type="numeric" Nullable="false" />
+    <Property Name="Domain" Type="nvarchar" MaxLength="100" />
+    <Property Name="Subject" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Progress" Type="numeric" Nullable="false" />
+  </EntityType>
+</Schema>

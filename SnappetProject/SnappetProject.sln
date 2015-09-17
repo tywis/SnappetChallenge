@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnappetProject", "SnappetProject\SnappetProject.csproj", "{12C342F8-4A1D-4656-83F1-B3AF1BA37669}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnappetProject.Tests", "SnappetProject.Tests\SnappetProject.Tests.csproj", "{397E2F05-72A9-4871-9D27-306A25821463}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{12C342F8-4A1D-4656-83F1-B3AF1BA37669}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12C342F8-4A1D-4656-83F1-B3AF1BA37669}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12C342F8-4A1D-4656-83F1-B3AF1BA37669}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12C342F8-4A1D-4656-83F1-B3AF1BA37669}.Release|Any CPU.Build.0 = Release|Any CPU
+		{397E2F05-72A9-4871-9D27-306A25821463}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{397E2F05-72A9-4871-9D27-306A25821463}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{397E2F05-72A9-4871-9D27-306A25821463}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{397E2F05-72A9-4871-9D27-306A25821463}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
